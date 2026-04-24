@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Atractiva</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calculadora {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 320px;
+      text-align: center;
+    }
+
+    .calculadora h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="number"], input[readonly] {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    input[readonly] {
+      background-color: #f1f1f1;
+      font-weight: bold;
+    }
+
+    button {
+      width: 95%;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 16px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculadora">
+    <h2>🧮 Calculadora</h2>
+    <input type="number" id="numero1" placeholder="Ingrese el primer número">
+    <input type="number" id="numero2" placeholder="Ingrese el segundo número">
+    <button onclick="sumar()">Sumar</button>
+    <input type="text" id="resultado" placeholder="Resultado" readonly>
+  </div>
+
+  <script>
+    function sumar() {
+      const num1 = parseFloat(document.getElementById("numero1").value);
+      const num2 = parseFloat(document.getElementById("numero2").value);
+      if (!isNaN(num1) && !isNaN(num2)) {
+        document.getElementById("resultado").value = num1 + num2;
+      } else {
+        document.getElementById("resultado").value = "Error: Ingrese ambos números";
+      }
+    }
+  </script>
+</body>
+</html>
